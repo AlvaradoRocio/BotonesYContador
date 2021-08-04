@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <link rel="stylesheet" href="contador.css">
+</head>
+
+<body>
+    <div class="formulario">
+        <textarea name="textarea" onkeyup="contar(this)">Writing something</textarea>
+        <p id="contador">0/140</p>
+    </div>
+</body>
+
+<script>
+
+    function contar(e) {
+        var max = 140;
+        var tamanio = e.value.length;
+        if (tamanio > 120 && tamanio<max) {
+            document.getElementById("contador").innerHTML = '<span style="color: orange;">' + tamanio + '/' + max ;
+        } else if( tamanio> max){
+            document.getElementById("contador").innerHTML = '<span style="color:red;">' + tamanio + '/' + max;
+        } else {
+            document.getElementById("contador").innerHTML = tamanio + '/'+ max;
+        }
+    }
+    contar();
+
+</script>
+
+</html>

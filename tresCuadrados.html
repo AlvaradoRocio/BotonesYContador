@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="tresCuadrados.css">
+</head>
+
+<body class="todo">
+    <div class="contenedor">
+        <div>
+            <button class="boton" id="rojo">Rojo</button>
+        </div>
+        <div>
+            <button class="boton" id="azul">Azul</button>
+        </div>
+        <div>
+            <button class="boton" id="verde">Verde</button>
+        </div>
+    </div>
+
+
+    <script>
+        // CSS
+        var contador = 0;
+        var cuadrado = document.getElementsByClassName('todo')[0];
+        var rojo = document.getElementById('rojo');
+        var azul = document.getElementById('azul');
+        var reset = document.getElementById('verde');
+
+        rojo.addEventListener('click', function () {
+            cuadrado.classList.remove('azul', 'verde');
+            if (contador % 2 == 0) {
+                cuadrado.classList.add('rojo');
+                contador++;
+            } else {
+                cuadrado.classList.remove('rojo');
+                contador = 0;
+            }
+        });
+        rojo.addEventListener('click', function(){
+            cuadrado.classList.remove('azul', 'verde');
+        });
+
+        azul.addEventListener('click', function () {
+            cuadrado.classList.remove('rojo', 'verde');
+            if (contador % 2 == 0) {
+                cuadrado.classList.add('azul');
+                contador++;
+            } else {
+                cuadrado.classList.remove('azul');
+                contador = 0;
+            }
+        });
+        azul.addEventListener('click', function(){
+            cuadrado.classList.remove('verde', 'rojo');
+        });
+
+        verde.addEventListener('click', function () {
+            if (contador % 2 == 0) {
+                cuadrado.classList.add('verde');
+                contador++;
+            } else {
+                cuadrado.classList.remove('verde');
+                contador = 0;
+            }
+        });
+        verde.addEventListener('click', function(){
+            cuadrado.classList.remove('azul', 'rojo');
+        });
+    </script>
+</body>
+
+</html>
